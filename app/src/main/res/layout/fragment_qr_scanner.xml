@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.QrScannerFragment">
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/code_scanner"></com.budiyev.android.codescanner.CodeScannerView>
+
+    <Button
+        android:id="@+id/button_to_generation"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Generate QR code"></Button>
+
+
+</FrameLayout>
