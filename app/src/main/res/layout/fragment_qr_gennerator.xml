@@ -23,39 +23,44 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view"></EditText>
+        app:layout_constraintTop_toBottomOf="@+id/image_view"
+        app:layout_constraintVertical_bias="0.375"></EditText>
 
     <Button
         android:id="@+id/button_generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="generate QR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputvalue"
-        app:layout_constraintVertical_bias="0.314"
-        android:text="generate QR"/>
+        app:layout_constraintVertical_bias="0.559" />
 
     <Button
         android:id="@+id/button_to_scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="scanQr"
+        android:layout_marginBottom="4dp"
+        android:text="back to scanner page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"></Button>
 
     <Button
         android:id="@+id/saveImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="128dp"
         android:text="save QR"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"></Button>
+        app:layout_constraintEnd_toStartOf="@+id/button_generate"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputvalue"
+        app:layout_constraintVertical_bias="0.988"></Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

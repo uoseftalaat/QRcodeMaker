@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
 import androidmads.library.qrgenearator.QRGSaver
@@ -47,7 +48,7 @@ class QrGeneratorFragment : Fragment() {
     }
 
     private fun createQR(){
-        val qrgEncoder = QRGEncoder(binding.inputvalue.toString(), null, QRGContents.Type.TEXT, 1000)
+        val qrgEncoder = QRGEncoder(binding.inputvalue.text.toString(), null, QRGContents.Type.TEXT, 1000)
         qrgEncoder.colorBlack = Color.BLACK
         qrgEncoder.colorWhite = Color.WHITE
         try {
@@ -64,6 +65,7 @@ class QrGeneratorFragment : Fragment() {
         val qrgSaver =  QRGSaver()
         val savepath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + "/QRCode/";
         qrgSaver.save(savepath, binding.inputvalue.getText().toString().trim(), bitmap, QRGContents.ImageType.IMAGE_JPEG)
+        Toast.makeText(context,"saved",Toast.LENGTH_LONG).show()
     }
 
     // Save with location, value, bitmap returned and type of Image(JPG/PNG).

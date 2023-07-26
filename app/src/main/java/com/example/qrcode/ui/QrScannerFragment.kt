@@ -1,11 +1,14 @@
 package com.example.qrcode.ui
 
+import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
@@ -29,7 +32,25 @@ class QrScannerFragment : Fragment() {
         codeScanner = CodeScanner(activity, scannerView)
         codeScanner.decodeCallback = DecodeCallback {
             activity.runOnUiThread {
-                Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
+                val alertDialog = AlertDialog.Builder(context)
+                    .setTitle("link opening")
+                    .setMessage("do you want to open this link < ${it.text} >")
+                    .setPositiveButton("Yes") { _, _ ->
+                        val uri = Uri.parse(it.text)
+                        try {
+                            val intent = Intent(Intent.ACTION_VIEW, uri)
+                            startActivity(intent)
+                        }catch (e:Exception){
+                            Toast.makeText(context,"sorry this is not a valid link",Toast.LENGTH_LONG).show()
+                            codeScanner.startPreview()
+                        }
+                    }
+                    .setNegativeButton("No") { _, _ ->
+                        codeScanner.startPreview()
+                    }
+                    .create().show()
+
+
             }
         }
         binding.buttonToGeneration.setOnClickListener{

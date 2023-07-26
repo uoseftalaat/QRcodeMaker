@@ -15,7 +15,7 @@
         android:layout_width="203dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:text="Generate QR code"></Button>
+        android:text="Go to Generate QR code"></Button>
 
 
 </FrameLayout>
