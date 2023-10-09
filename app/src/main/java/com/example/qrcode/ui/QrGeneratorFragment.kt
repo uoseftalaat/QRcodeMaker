@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.qrcode.R
 import com.example.qrcode.databinding.FragmentQrGenneratorBinding
+import com.example.qrcode.others.Constants.IMAGE_SET_VALUE
 import com.google.zxing.WriterException
 
 
@@ -29,20 +30,24 @@ class QrGeneratorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentQrGenneratorBinding.inflate(inflater,container,false)
-
         binding.buttonGenerate.setOnClickListener{
-            if(binding.inputvalue.toString().isNotEmpty()){
+            if(binding.inputvalue.text.toString().isNotEmpty()){
                 createQR()
             }
             else{
-
+                Toast.makeText(context,"please enter valid text",Toast.LENGTH_SHORT).show()
             }
         }
         binding.buttonToScan.setOnClickListener{
             Navigation.findNavController(binding.root).navigate(R.id.action_qrGenneratorFragment_to_qrScannerFragment)
         }
         binding.saveImage.setOnClickListener{
-            saveImage()
+            if(binding.imageView.tag == IMAGE_SET_VALUE){
+                saveImage()
+            }
+            else{
+                Toast.makeText(context,"you didn't do any qr yet",Toast.LENGTH_SHORT).show()
+            }
         }
         return binding.root
     }
@@ -56,6 +61,7 @@ class QrGeneratorFragment : Fragment() {
             bitmap = qrgEncoder.getBitmap(0)
             // Setting Bitmap to ImageView
             binding.imageView.setImageBitmap(bitmap)
+            binding.imageView.tag = IMAGE_SET_VALUE
 
         } catch (e: WriterException) {
             Log.v(TAG, e.toString())

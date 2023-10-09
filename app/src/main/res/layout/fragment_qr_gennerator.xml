@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.QrGeneratorFragment">
+    tools:context=".ui.QrGeneratorFragment"
+    >
 
     <ImageView
         android:id="@+id/image_view"
@@ -15,10 +16,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:tag="drawable_name"
         app:layout_constraintVertical_bias="0.187"></ImageView>
 
     <EditText
         android:id="@+id/inputvalue"
+        android:hint="enter you text please"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,23 +34,22 @@
         android:id="@+id/button_generate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
         android:text="generate QR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputvalue"
-        app:layout_constraintVertical_bias="0.559" />
+        app:layout_constraintVertical_bias="0.501" />
 
     <Button
         android:id="@+id/button_to_scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="16dp"
         android:text="back to scanner page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"></Button>
 
     <Button
@@ -55,12 +58,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
         android:text="save QR"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_generate"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputvalue"
-        app:layout_constraintVertical_bias="0.988"></Button>
+        app:layout_constraintVertical_bias="1.0"></Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
